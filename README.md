@@ -116,7 +116,7 @@
   <div class="container">
     <div class="card" id="tentang">
       <h2>Tentang Saya</h2>
-      <p>Halo! Nama saya <b>[Nama Kamu]</b>. Saya membuat website sederhana ini dengan HTML dan CSS. Website ini bisa digunakan sebagai profil pribadi, sekolah, maupun portofolio karya saya.</p>
+      <p>Halo! Nama saya <b>Abdullah Fauji</b>. Saya membuat website sederhana ini dengan HTML dan CSS. Website ini bisa digunakan sebagai profil pribadi, sekolah, maupun portofolio karya saya.</p>
     </div>
     <div class="card" id="galeri">
       <h2>Galeri</h2>
@@ -125,13 +125,13 @@
     </div>
     <div class="card" id="kontak">
       <h2>Kontak</h2>
-      <p>📧 Email: contoh@email.com</p>
-      <p>📷 Instagram: @username</p>
-      <p>📞 Telepon: 08xxxxxxxxxx</p>
+      <p>📧 Email: abdullahfauji09@guru.sd.belajar.id</p>
+      <p>📷 Instagram: @Fauji</p>
+      <p>📞 Telepon: -</p>
     </div>
   </div>
   <footer>
-    <p>&copy; 2025 Website Sederhana. Dibuat dengan ❤️</p>
+    <p>&copy; 2025 Website ku. Dibuat dengan ❤️</p>
   </footer>
   <audio id="bg-music" loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
