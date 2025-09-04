@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Sederhana Modern</title>
+  <style>
+    :root {
+      --bg-color: #f4f6f9;
+      --text-color: #333;
+      --card-color: #fff;
+      --header-gradient: linear-gradient(135deg, #3498db, #1abc9c);
+      --nav-color: #2980b9;
+      --footer-color: #2c3e50;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --card-color: #1e1e1e;
+      --header-gradient: linear-gradient(135deg, #222, #555);
+      --nav-color: #333;
+      --footer-color: #000;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: var(--header-gradient);
+      color: white;
+      padding: 60px 20px 80px 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+    }
+    header h1 { font-size: 2.5em; margin: 0; }
+    header p { margin-top: 10px; font-size: 1.2em; }
+    .controls {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .controls button {
+      background: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .controls button:hover { background: #ddd; transform: scale(1.1); }
+    nav {
+      background: var(--nav-color);
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover { background: #1abc9c; transform: scale(1.1); }
+    .container { padding: 40px 20px; max-width: 1000px; margin: auto; }
+    .card {
+      background: var(--card-color);
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+      animation: slideUp 1s ease-in-out;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .card img { max-width: 100%; border-radius: 12px; transition: transform 0.5s ease; }
+    .card img:hover { transform: scale(1.05); }
+    footer {
+      background: var(--footer-color);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 0.9em;
+      transition: background 0.3s;
+    }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes slideUp { from {opacity: 0; transform: translateY(50px);} to {opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Selamat Datang di Website Saya</h1>
+    <p>Website sederhana dengan HTML, CSS, Animasi, Dark Mode & Musik</p>
+    <div class="controls">
+      <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+      <button onclick="toggleMusic()">🎵 Play</button>
+    </div>
+  </header>
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+  <div class="container">
+    <div class="card" id="tentang">
+      <h2>Tentang Saya</h2>
+      <p>Halo! Nama saya <b>[Nama Kamu]</b>. Saya membuat website sederhana ini dengan HTML dan CSS. Website ini bisa digunakan sebagai profil pribadi, sekolah, maupun portofolio karya saya.</p>
+    </div>
+    <div class="card" id="galeri">
+      <h2>Galeri</h2>
+      <p>Berikut contoh gambar:</p>
+      <img src="https://via.placeholder.com/600x300" alt="Contoh Gambar">
+    </div>
+    <div class="card" id="kontak">
+      <h2>Kontak</h2>
+      <p>📧 Email: contoh@email.com</p>
+      <p>📷 Instagram: @username</p>
+      <p>📞 Telepon: 08xxxxxxxxxx</p>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 Website Sederhana. Dibuat dengan ❤️</p>
+  </footer>
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+      const btn = document.querySelector(".theme-toggle");
+      if (document.body.classList.contains("dark-mode")) {
+        btn.textContent = "☀️ Light";
+      } else {
+        btn.textContent = "🌙 Dark";
+      }
+    }
+    const music = document.getElementById("bg-music");
+    let isPlaying = false;
+    function toggleMusic() {
+      const btns = document.querySelectorAll(".controls button")[1];
+      if (!isPlaying) {
+        music.play();
+        btns.textContent = "⏸️ Pause";
+        isPlaying = true;
+      } else {
+        music.pause();
+        btns.textContent = "🎵 Play";
+        isPlaying = false;
+      }
+    }
+  </script>
+</body>
+</html>
